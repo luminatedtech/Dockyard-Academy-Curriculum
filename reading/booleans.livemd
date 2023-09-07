@@ -105,6 +105,10 @@ Returns `true` if left and right-hand side are true. Returns `false` if either t
 ```
 
 ```elixir
+1 + 1
+```
+
+```elixir
 true and true
 ```
 
@@ -214,6 +218,10 @@ nil || 2
 <!-- livebook:{"break_markdown":true} -->
 
 Flips truthy -> `false` and falsy -> `true`.
+
+```elixir
+
+```
 
 ```elixir
 !1

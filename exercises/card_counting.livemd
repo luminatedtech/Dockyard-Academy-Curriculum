@@ -104,7 +104,8 @@ initial_count + high
 Enter your solution below.
 
 ```elixir
-
+initial_count = 0
+initial_count + high
 ```
 
 ## Low Card
