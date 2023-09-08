@@ -81,7 +81,7 @@ weather = :cold
 if weather == :cold do
   "coat"
 else
-  "t-shirt"
+  "shirt"
 end
 ```
 
