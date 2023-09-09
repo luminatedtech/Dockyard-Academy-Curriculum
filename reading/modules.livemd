@@ -120,7 +120,7 @@ end
 Call the `MutliParamExample.call/3` function with different arguments.
 
 ```elixir
-
+MultiParamExample.call("hi", "is", "me")
 ```
 
 ## Internal Module Functions
@@ -318,7 +318,11 @@ end
 Enter your solution below.
 
 ```elixir
-
+defmodule Languages.Korean do
+  def greeting do
+    "Anhyung"
+  end
+end
 ```
 
 ### Nested Modules
@@ -516,7 +520,14 @@ end
 </details>
 
 ```elixir
-
+defmodule Math do 
+  def add (value1, value2) do 
+    value1 + value2
+  end
+  def add (value1, value2, value3) do 
+    value1 + value2 + value3
+  end
+end 
 ```
 
 ## Default Arguments
@@ -583,7 +594,13 @@ Greeting.hello("Andrew")
 ```
 
 ```elixir
+defmodule Greeting do
+  def hello(param \\ "Hello name!") do
+    param
+  end
+end
 
+Greeting.hello()
 ```
 
 ## Documentation
