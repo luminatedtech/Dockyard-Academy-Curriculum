@@ -214,7 +214,7 @@ Character.introduce(aragorn)
 Enter your solution below.
 
 ```elixir
-
+aragorn = %Character{name: "Aragorn", class: "ranger", weapon: "sword"}
 ```
 
 ## Commit Your Progress
