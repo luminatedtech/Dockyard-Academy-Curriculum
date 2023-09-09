@@ -125,9 +125,23 @@ defmodule Pokemon do
       iex> Pokemon.attack(attacker, defender)
       %Pokemon{name: "Bulbasaur", type: :grass, health: 10.0, attack: 5, speed: 20}
   """
-  defstruct []
+  defstruct [:name, :type, :attack, :speed, :health]
 
   def attack(attacker, defender) do
+    damage = attacker.attack * modifier(attacker.type, defender.type)
+    %__MODULE__{defender | health: defender.health - damage}
+  end
+
+  defp modifier(attacker_type, defender_type) do
+    cond do
+      super_effective?(attacker_type, defender_type) -> 2
+      super_effective?(defender_type, attacker_type) -> 0.5
+      true -> 1
+    end
+  end
+
+  defp super_effective?(attacker_type, defender_type) do
+    {attacker_type, defender_type} in [{:fire, :grass}, {:grass, :water}, {:water, :fire}]
   end
 end
 ```
@@ -135,7 +149,9 @@ end
 Consider using the following Elixir cell to test your solution.
 
 ```elixir
-
+squirtle = %Pokemon{name: "Squirtle", type: "water", attack: 30, health: 100}
+charmander = %Pokemon{name: "Charmander", type: "fire", attack: 40, health: 90}
+Pokemon.attack(squirtle, charmander)
 ```
 
 ### Pokemon Instances
