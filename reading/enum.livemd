@@ -729,7 +729,7 @@ Enum.map(1..10, fn _ -> Enum.random(0..9) end)
 Enter your solution below.
 
 ```elixir
-Enum.map(1..10, fn _ -> Enum.random(0..9) end)
+Enum.map(1..5, fn _ -> Enum.random(0..9) end)
 ```
 
 ## Capture Operator And Module Functions
