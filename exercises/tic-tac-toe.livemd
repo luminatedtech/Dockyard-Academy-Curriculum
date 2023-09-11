@@ -207,7 +207,7 @@ defmodule TicTacToe do
 end
 ```
 
-### Bonus: Winner
+df### Bonus: Winner
 
 Create a `TicTacToe.winner/1` function which accepts a board and determines if there is a winner. A player wins if they have three symbols in a row, three symbols in a column, or three symbols diagonally.
 
