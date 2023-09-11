@@ -137,6 +137,22 @@ end
 </details>
 
 ```elixir
+board = [
+  ["X", "O", nil],
+  [nil, "X", "O"],
+  [nil, nil, "X"]
+]
+
+coordinate = {0, 2}
+{x, y} = coordinate
+Enum.fetch!(Enum.at(board, 2 - y), x)
+```
+
+```elixir
+to_list({2, 5})
+```
+
+```elixir
 defmodule TicTacToe do
   @moduledoc """
     Documentation for `TicTacToe`
@@ -162,6 +178,8 @@ defmodule TicTacToe do
       "A"
   """
   def at(board, coordinate) do
+    {x, y} = coordinate
+    Enum.fetch!(Enum.at(board, 2 - y), x)
   end
 
   @doc """
@@ -180,6 +198,11 @@ defmodule TicTacToe do
       [[nil, nil, nil], [nil, "O", nil], [nil, nil, nil]]
   """
   def fill(board, coordinate, symbol) do
+    {x, y} = coordinate
+
+    List.update_at(board, 2 - y, fn row ->
+      List.replace_at(row, x, symbol)
+    end)
   end
 end
 ```
