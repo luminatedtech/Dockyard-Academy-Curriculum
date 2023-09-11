@@ -32,6 +32,14 @@ Mix.install([
 
 ## Palindrome
 
+```elixir
+
+```
+
+```elixir
+
+```
+
 A word or sentence that reads the same way forwards and backwards is a palindrome.
 For example **kayak** and **racecar** are palindromes.
 
