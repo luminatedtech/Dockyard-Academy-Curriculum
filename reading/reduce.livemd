@@ -148,7 +148,7 @@ updated_map = Map.update(%{}, :key, "default value", fn current -> "updated: #{c
 If there is an existing key, then it can update the map key using the existing value.
 
 ```elixir
-Map.update(updated_map, :key, "default value", fn current -> "updated: #{current}" end)
+Map.update(updated_map, :key, "default value", fn current -> "updated: #{currentd}" end)
 ```
 
 When converting a string to a map of character counts, If there is no key, the value will be `1`. If there is an existing key in the map, the value will be the current value incremented by `1`. Here are the steps we want to accomplish for our [Enum.reduce/3](https://hexdocs.pm/elixir/Enum.html#reduce/3) function.
@@ -179,6 +179,10 @@ Enum.reduce(split_string, %{}, fn char, map_accumulator ->
 end)
 ```
 
+```elixir
+split_string = String.split("aba", "", trim: true)
+```
+
 ### Your Turn
 
 Use [Enum.reduce/3](https://hexdocs.pm/elixir/Enum.html#reduce/3) to convert the integer `1234321` into a map of digit counts.
@@ -203,7 +207,15 @@ end)
 </details>
 
 ```elixir
+digits = Integer.digits(1_234_321)
 
+Enum.reduce(digits, %{}, fn number, num_accu ->
+  Map.update(num_accu, number, 1, fn current -> current + 1 end)
+end)
+```
+
+```elixir
+digits = Integer.digits(1_234_321)
 ```
 
 ## Multiple Accumulators
@@ -220,6 +232,11 @@ Enum.reduce(1..10, {[], []}, fn integer, {evens, odds} ->
     {evens, [integer | odds]}
   end
 end)
+```
+
+```elixir
+integer = 1
+{[integer | 5], 3}
 ```
 
 Technically, there is only one actual accumulator, our tuple with two lists. However, this functions as a way to track multiple values with each enumeration in the reduce operation.
